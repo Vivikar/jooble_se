@@ -1,19 +1,19 @@
 # Search engine with Machine Learning
 ![alt text](https://github.com/Vivikar/jooble_se/blob/master/readme/pics/vloodlelogo.jpg)
 
-Created during internship at Jooble and based on data provided by them this search system is capable of searching and showing results on job search queries. It consists of few services that run independently and exhange information between each other sending jsons. The services structure is next:
+Created during an internship at Jooble and based on data provided by them this search system is capable of searching and showing results on job search queries. It consists of few services that run independently and exchange information between each other sending jsons. The services structure is next:
 
 ![alt text](https://github.com/Vivikar/jooble_se/blob/master/readme/pics/struct.png)
 
-We implemented two step search system. 
+We implemented a two-step search system. 
 ``First step`` consists of usual boolean search, that finds which documents that have words from user's query. Then tf-df ranking is applied to find 100 most relevant documents.
-``Second step`` is used only when user provided additional information along with his search query. When he filled "Skills" section we  apply an advanced sorting alghorithm to find the most relevant documents among that 100 previously choosed. Before adding a document to our inverted\forward index data storage we do an additional research on it. We use special Deep Learning alghorithm based on encoder – decoder model 
+``Second step`` is used only when the user provided additional information along with his search query. When he filled "Skills" section we apply an advanced sorting algorithm to find the most relevant documents among that 100 previously chosen. Before adding a document to our inverted\forward index data storage we do additional research on it. We use a special Deep Learning algorithm based on  encoder-decoder model 
 ![alt text](https://github.com/Vivikar/jooble_se/blob/master/readme/pics/nnstr.jpg)
 
-to detect "Requirements" and "Duties" fields in vacancy's text. Then we sort our list of results finding cosine similarity between vectors of those fields and user's skills he listed on search page. This gives us nuch better accuracy and helps to find the most relevant jobs for user, especially than there are a lot of good and possibly relevant vacancies.
+to detect "Requirements" and "Duties" fields in vacancy's text. Then we sort our list of results finding cosine similarity between vectors of those fields and user's skills he listed on a search page. This gives us much better accuracy and helps to find the most relevant jobs for a user, especially when there are a lot of good and possibly relevant vacancies.
 
-And actually our neural network performed quite good
-![alt text](https://github.com/Vivikar/jooble_se/blob/master/readme/pics/metrics.png)
+
+And actually, our neural network performed quite good![alt text](https://github.com/Vivikar/jooble_se/blob/master/readme/pics/metrics.png)
 
 Some examples of its work:
 ```
